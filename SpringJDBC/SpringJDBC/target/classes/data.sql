@@ -1,0 +1,1 @@
+insert into alien (Id, name, tech) values(1,'Kenric', 'Java')
