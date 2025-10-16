@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.fileorganizer.FileOrganizerController"
+      spacing="12">
+
+    <padding>
+        <Insets top="16" right="16" bottom="16" left="16"/>
+    </padding>
+
+    <!-- Non-visual elements go inside fx:define -->
+    <fx:define>
+        <ToggleGroup fx:id="modeToggleGroup"/>
+    </fx:define>
+
+    <Label text="File Organizer"
+           style="-fx-font-size:18px; -fx-font-weight:bold;"/>
+
+    <HBox spacing="8">
+        <TextField fx:id="txtFolderPath"
+                   promptText="Select a folder..."
+                   editable="false"
+                   HBox.hgrow="ALWAYS"/>
+        <Button fx:id="btnChooseFolder"
+                text="Browse..."
+                onAction="#chooseFolder"/>
+    </HBox>
+
+    <HBox spacing="12">
+        <RadioButton fx:id="rbtnType"
+                     text="By File Type"
+                     toggleGroup="$modeToggleGroup"/>
+        <RadioButton fx:id="rbtnExtension"
+                     text="By Extension"
+                     toggleGroup="$modeToggleGroup"/>
+    </HBox>
+
+    <Button fx:id="btnOrganize"
+            text="Organize Files"
+            onAction="#organizeFiles"
+            prefWidth="150"/>
+
+    <TextArea fx:id="txtLog"
+              prefRowCount="10"
+              wrapText="true"
+              editable="false"/>
+
+</VBox>
